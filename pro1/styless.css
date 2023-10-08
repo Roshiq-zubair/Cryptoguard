@@ -1,0 +1,93 @@
+/* Import the custom font */
+@font-face {
+    font-family: 'Reiswar';
+    src: url('Reiswar.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Apply styles to the body for background and fonts */
+body {
+    font-family: 'Reiswar', Arial, Helvetica, sans-serif;
+    background-image: url('main1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style the container for centering content */
+.container {
+    max-width: 800px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Style input fields and buttons */
+input[type="text"],
+textarea,
+button {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%; /* Make inputs and buttons full-width */
+    box-sizing: border-box; /* Include padding and borders in width */
+}
+
+/* Style the result textarea */
+#result {
+    margin: 5px;
+    padding: 10px;
+    resize: none;
+    border-radius: 10px;
+    width: 100%; /* Make it full-width */
+    box-sizing: border-box;
+}
+
+/* Style headings */
+h1, h2 {
+    color: #fff;
+}
+
+/* Style buttons */
+button {
+    background-color: #FF7200;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #FF9500; /* Adjust hover color */
+}
+
+/* Style labels */
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: white; /* Text color for labels */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Media Query for smaller screens */
+@media screen and (max-width: 768px) {
+    input[type="text"],
+    textarea,
+    button {
+        width: 100%; /* Make inputs and buttons full-width on smaller screens */
+        max-width: 100%; /* Ensure they don't exceed the container width */
+        margin: 5px 0; /* Adjust margin for better spacing */
+        padding: 8px; /* Adjust padding for better touch interactions on smaller screens */
+    }
+    
+    /* Add more media query adjustments as needed */
+}
+

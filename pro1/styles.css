@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'Reiswar';
+    src: url('Reiswar.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Reset margin and padding for the body and HTML elements */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    background-color: #212020; /* Set a background color for the webpage */
+    overflow: hidden; /* Hide overflowing content */
+}
+
+.container {
+    position: relative;
+    max-width: 100%; /* Ensure container doesn't exceed viewport width */
+}
+
+.responsive-image {
+    max-width: calc(100% - 100px); /* Subtract 100px from the max-width */
+    height: auto;
+    display: block; /* Remove any inline space below the image */
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.centered-heading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+h1 {
+    color: aliceblue;
+    font-family: 'Reiswar', Arial, Helvetica, sans-serif;
+    font-size: 8vw; /* Responsive font size using viewport width (adjust as needed) */
+    margin: 0; /* Remove any default margin */
+}
+/* Add this CSS to your existing styles.css file or in a <style> tag in the <head> of your HTML document */
+
+/* Make the icon white, larger, and move it down */
+.centered-heading ion-icon {
+    color: white;
+    font-size: 5rem; /* Adjust the size as needed */
+    margin-top: 30px; /* Adjust the margin-top to move it down */
+}
+.centered-heading ion-icon:hover {
+    transform: scale(1.2); /* Increase the size on hover (adjust as needed) */
+}
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    h1 {
+        padding-top: 350px;
+        font-size: 36px; /* Adjust the font size for smaller screens */
+    }
+    
+    /* Adjust the icon size and margin-top for smaller screens */
+    .centered-heading ion-icon {
+        font-size: 2rem; /* Adjust the size for smaller screens */
+        margin-top: 5px; /* Adjust the margin-top for smaller screens */
+    }
+    .responsive-image {
+        padding-top: 300px;
+    }
+}
+

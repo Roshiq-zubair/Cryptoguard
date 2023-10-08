@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styless.css">
+    <title>Encryption and Decryption</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Encryption and Decryption</h1>
+
+        <div class="input-group">
+            <label for="key">KEY: </label>
+            <input type="text" id="key" placeholder="Enter your secret key">
+        </div>
+
+        <div class="input-group">
+            <label for="iv">IV:</label>
+            <input type="text" id="iv" placeholder="Enter your IV">
+        </div>
+
+        <div class="input-group">
+            <label for="text">Enter plainText:</label>
+            <textarea id="text" rows="4" cols="50"></textarea>
+        </div>
+
+        <button onclick="encryptText()">Encrypt</button>
+        <button onclick="decryptText()">Decrypt</button>
+
+        <h2>Result:</h2>
+        <textarea id="result" rows="4" cols="50" readonly></textarea>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <script>
+        function encryptText() {
+            const plaintextInput = document.getElementById('text');
+            const keyInput = document.getElementById('key');
+            const ivInput = document.getElementById('iv');
+    
+            const plaintext = plaintextInput.value;
+            const key = keyInput.value;
+            const iv = ivInput.value;
+    
+            if (!key || !iv) {
+                alert("Please enter both a key and an IV.");
+                return;
+            }
+    
+            const encrypted = CryptoJS.AES.encrypt(plaintext, key, { iv: iv }).toString();
+            document.getElementById('result').value = encrypted;
+    
+            // Clear the key, IV, and plainText inputs after encryption
+            plaintextInput.value = '';
+            keyInput.value = '';
+            ivInput.value = '';
+        }
+    
+        function decryptText() {
+            const ciphertext = document.getElementById('text').value;
+            const key = document.getElementById('key').value;
+            const iv = document.getElementById('iv').value;
+    
+            if (!key || !iv) {
+                alert("Please enter both a key and an IV.");
+                return;
+            }
+    
+            try {
+                const decrypted = CryptoJS.AES.decrypt(ciphertext, key, { iv: iv });
+                document.getElementById('result').value = decrypted.toString(CryptoJS.enc.Utf8);
+            } catch (error) {
+                alert("Decryption failed. Please check your key and IV.");
+            }
+        }
+    </script>
+    
+    
+</body>
+</html>
